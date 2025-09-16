@@ -2,6 +2,11 @@ version: 0.2
 
 phases:
   pre_build:
+  - echo "Current directory:"
+- pwd
+- echo "Files available:"
+- ls -al
+
     commands:
       - echo "Checking AWS identity..."
       - aws sts get-caller-identity
