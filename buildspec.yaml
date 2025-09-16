@@ -11,7 +11,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t brain-tasks-app .
-      - docker tag brain-tasks-app:latest 385122037205.dkr.ecr.us-east-2.amazonaws.com/brain-tasks-app:latest
+      - docker tag brain-tasks-app:latest 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-tasks-app:latest
   post_build:
     commands:
       - echo Build completed on `date`
