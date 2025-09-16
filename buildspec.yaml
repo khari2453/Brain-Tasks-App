@@ -2,35 +2,17 @@ version: 0.2
 
 phases:
   pre_build:
-  - echo "Current directory:"
-- pwd
-- echo "Files available:"
-- ls -al
-
     commands:
-      - echo "Checking AWS identity..."
-      - aws sts get-caller-identity
-      - echo "Checking Docker version..."
-      - docker --version
-      - echo "Trying ECR login..."
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 385122037205.dkr.ecr.us-east-1.amazonaws.com || echo "ECR login failed"
-
- # pre_build:
-  #  commands:
-   #   - echo Logging in to Amazon ECR...
-    #  - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 385122037205.dkr.ecr.us-east-1.amazonaws.com
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
-      - echo Building Docker image...
-      - docker build -t brain-tasks-app .
-      - docker tag brain-app:latest 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-app:latest
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
   post_build:
     commands:
-      - echo Pushing Docker image...
-      - docker push 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-app:latest
-      - echo Writing image definitions file...
-      - printf '[{"name":"brain-tasks-app","imageUri":"%s"}]' 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-app:latest > imagedefinitions.json
-
-artifacts:
-  files:
-    - imagedefinitions.json
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
