@@ -9,13 +9,13 @@ phases:
     commands:
       - echo Building Docker image...
       - docker build -t brain-tasks-app .
-      - docker tag brain-tasks-app:latest 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-tasks-app:latest
+      - docker tag brain-app:latest 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-app:latest
   post_build:
     commands:
       - echo Pushing Docker image...
-      - docker push 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-tasks-app:latest
+      - docker push 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-app:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"brain-tasks-app","imageUri":"%s"}]' 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-tasks-app:latest > imagedefinitions.json
+      - printf '[{"name":"brain-tasks-app","imageUri":"%s"}]' 385122037205.dkr.ecr.us-east-1.amazonaws.com/brain-app:latest > imagedefinitions.json
 
 artifacts:
   files:
