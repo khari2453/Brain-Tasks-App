@@ -1,6 +1,9 @@
 
 # Use lightweight Nginx image
-FROM nginx:alpine
+
+# NEW (Amazon ECR Public)
+FROM public.ecr.aws/nginx/nginx:alpine
+
 
 # Set working directory (optional)
 WORKDIR /usr/share/nginx/html
