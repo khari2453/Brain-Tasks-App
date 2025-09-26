@@ -6,16 +6,16 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/setup-kubectl.sh
+    - location: scripts/scripts.sh
       timeout: 300
       runas: root
 
   AfterInstall:
-    - location: scripts/deploy-k8s.sh
+    - location: k8s/deployment.yaml
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: scripts/verify-deployment.sh
+    - location: k8s/service.yaml
       timeout: 300
       runas: root
