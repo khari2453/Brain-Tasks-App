@@ -1,6 +1,9 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      python: 3.11
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -10,7 +13,13 @@ phases:
       - REPO_NAME=$REPO_NAME
       - IMAGE_URI=$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:latest
       - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
-      
+      - echo Installing kubectl
+      - curl -LO "https://dl.k8s.io/release/v1.34.1/bin/linux/amd64/kubectl"
+      - chmod +x kubectl
+      - mv kubectl /usr/local/bin/
+      - echo "Configuring kubeconfig"
+      - aws eks update-kubeconfig --region us-east-1 --name Brain-task-app-EKS
+
   build:
     commands:
       - echo Build started on `date`
