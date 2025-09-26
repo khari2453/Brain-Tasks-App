@@ -9,7 +9,7 @@ phases:
       - REGION=$REGION
       - REPO_NAME=$REPO_NAME
       - IMAGE_URI=$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:latest
-      - aws ecr get-login-password --region $us-east-1 | docker login --username AWS --password-stdin $385122037205.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
       
   build:
     commands:
