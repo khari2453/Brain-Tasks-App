@@ -22,7 +22,7 @@ phases:
       - echo "Writing Kubernetes manifests..."
       - sed -i "s|<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/brain-tasks-app:latest|$IMAGE_URI|" k8s/deployment.yaml
       - aws eks update-kubeconfig --region us-east-1 --name brain-tasks-app
-      - kubectl apply -f k8s/deployment.yaml --validate=false
+      - kubectl apply -f k8s/deployment.yaml 
       - kubectl apply -f k8s/service.yaml
 
 artifacts:
