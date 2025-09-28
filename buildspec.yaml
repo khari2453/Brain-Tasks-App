@@ -10,6 +10,10 @@ phases:
       - REPO_NAME=$REPO_NAME
       - IMAGE_URI=$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:latest
       - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
+      - curl -o kubectl https://amazon-eks.s3.us-east-1.amazonaws.com/1.29.0/2023-11-14/bin/linux/amd64/kubectl
+      - chmod +x ./kubectl
+      - mv ./kubectl /usr/local/bin
+      - aws eks update-kubeconfig --region us-east-1 --name brain-tasks-app
      
   build:
     commands:
@@ -21,7 +25,7 @@ phases:
       - docker push $IMAGE_URI
       - echo "Writing Kubernetes manifests..."
       - sed -i "s|<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/brain-tasks-app:latest|$IMAGE_URI|" k8s/deployment.yaml
-      - aws eks update-kubeconfig --region us-east-1 --name brain-tasks-app
+      
       - kubectl apply -f k8s/deployment.yaml 
       - kubectl apply -f k8s/service.yaml
 
