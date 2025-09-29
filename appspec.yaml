@@ -1,8 +1,6 @@
 version: 0.0
 os: linux
-files:
-  - source: k8s/
-    destination: /tmp/k8s-manifests
+
 hooks:
   BeforeInstall:
     - location: scripts
