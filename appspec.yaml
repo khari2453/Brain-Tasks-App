@@ -2,15 +2,6 @@ version: 0.0
 os: linux
 
 hooks:
-  BeforeInstall:
-    - location: scripts
-      timeout: 300
-      runas: root
-
-  AfterInstall:
-    - location: scripts
-      timeout: 300
-      runas: root
 
   ApplicationStart:
     - location: k8s/deployment.yaml
