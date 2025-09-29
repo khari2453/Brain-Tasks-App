@@ -19,7 +19,7 @@ hooks:
       runas: root
 
   ApplicationStart:
-    - location: scripts/deploy_k8s.sh
+    - location: scripts/deploy.sh
       timeout: 600
       runas: root
 
