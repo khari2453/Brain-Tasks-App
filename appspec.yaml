@@ -5,21 +5,21 @@ files:
     destination: /tmp/k8s-manifests
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.sh
+    - location: scripts
       timeout: 300
       runas: root
 
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: scripts
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: scripts/deploy_k8s.sh
+    - location: k8s/deployment.yaml
       timeout: 600
       runas: root
 
   ValidateService:
-    - location: scripts/validate.sh
+    - location: k8s/service.yaml
       timeout: 300
       runas: root
