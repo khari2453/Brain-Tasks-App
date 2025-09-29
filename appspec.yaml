@@ -1,10 +1,29 @@
 version: 0.0
 os: linux
+
+# Copy Kubernetes manifests from artifact to host
 files:
   - source: k8s/
     destination: /tmp/k8s-manifests
+
+# Define lifecycle hooks
 hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
+
   ApplicationStart:
-    - location: k8s/deployment.yaml
+    - location: scripts/deploy_k8s.sh
       timeout: 600
+      runas: root
+
+  ValidateService:
+    - location: scripts/validate.sh
+      timeout: 300
       runas: root
