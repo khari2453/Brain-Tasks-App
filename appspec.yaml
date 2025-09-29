@@ -1,21 +1,11 @@
+# Optional: Use only if deploying to CodeDeploy
 version: 0.0
-os: linux
-files:
-  - source: ./k8s
-    destination: /tmp/k8s
+Resources:
+  - myApp:
+      Type: AWS::EKS::Application
+      Properties:
+        Name: brain-tasks-app
+        ClusterName: brain-tasks-apps
+        Namespace: default
 
-hooks:
-  BeforeInstall:
-    - location: scripts/scripts.sh
-      timeout: 300
-      runas: root
-
-  AfterInstall:
-    - location: k8s/deployment.yaml
-      timeout: 300
-      runas: root
-
-  ApplicationStart:
-    - location: k8s/service.yaml
-      timeout: 300
-      runas: root
+        FileExistsBehavior: OVERWRITE
