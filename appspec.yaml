@@ -1,14 +1,11 @@
+# Optional: Use only if deploying to CodeDeploy
 version: 0.0
-os: linux
+Resources:
+  - myApp:
+      Type: arn:aws:eks:us-east-1:385122037205:cluster/brain-tasks-apps
+      Properties:
+        Name: brain-tasks-app
+        ClusterName: brain-tasks-appa
+        Namespace: default
 
-hooks:
-
-  ApplicationStart:
-    - location: k8s/deployment.yaml
-      timeout: 600
-      runas: root
-
-  ValidateService:
-    - location: k8s/service.yaml
-      timeout: 300
-      runas: root
+        FileExistsBehavior: OVERWRITE
