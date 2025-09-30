@@ -22,6 +22,8 @@ phases:
       - docker push $IMAGE_URI
       - echo "Writing Kubernetes manifests..."
       - sed -i "s|<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/brain-tasks-app:latest|$IMAGE_URI|" k8s/deployment.yaml
+      - aws eks update-kubeconfig --region us-east-1 --name brain-tasksapp
+      - kubectl set image deployment/brain-task-app brain-tasks-app=$ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/brain-tasks-app:latest
       
      
 artifacts:
