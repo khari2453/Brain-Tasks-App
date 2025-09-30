@@ -1,29 +1,10 @@
 version: 0.0
-os: linux
+Resources:
+  - myApp:
+      Type: AWS::EKS::Application
+      Properties:
+        Name: Brain-Tasks-App
+        ClusterName: brain-tasksapp
+        Namespace: default
 
-# Copy Kubernetes manifests from artifact to host
-files:
-  - source: k8s/
-    destination: /tmp/k8s-manifests
-
-# Define lifecycle hooks
-hooks:
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
-      runas: root
-
-  AfterInstall:
-    - location: scripts/after_install.sh
-      timeout: 300
-      runas: root
-
-  ApplicationStart:
-    - location: scripts/deploy.sh
-      timeout: 600
-      runas: root
-
-  ValidateService:
-    - location: scripts/validate.sh
-      timeout: 300
-      runas: root
+        FileExistsBehavior: OVERWRITE
