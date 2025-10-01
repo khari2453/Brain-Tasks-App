@@ -4,7 +4,7 @@ Resources:
       Type: AWS::EKS::Application
       Properties:
         Name: Brain-Tasks-App
-        ClusterName: brain-tasksapp
+        ClusterName: brain-tasks-app1
         Namespace: default
 
         FileExistsBehavior: OVERWRITE
