@@ -31,11 +31,12 @@
 
 # Createing ECR
 We need to create empty ECR registry
-` docker build -t trend-app:latest .`
-`docker run -d -p 3000:80 --name trend-app trend-app:latest `
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/1802df57-3114-4c24-a827-2f178bcf4568" />
 
 # Step - 2
-<img width="32" height="32" src="https://img.icons8.com/external-kmg-design-outline-color-kmg-design/32/external-cloud-server-web-hosting-kmg-design-outline-color-kmg-design.png" alt="external-cloud-server-web-hosting-kmg-design-outline-color-kmg-design"/>
+
+<img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/7fae01b4-c1b7-4889-97ba-c82887c7a093" />
+Createing EKS cluster by using Cloudshell.
 
 # Createing EC2 Server 
 On this Ec2 server we need to provide the `aws configure` and install the terraform registory 
