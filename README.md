@@ -29,7 +29,7 @@
 # Step - 1
 <img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/989eef2b-5449-4638-8a4b-b2ddac8344b6" />
 
-# Createing ECR
+# Creating ECR
 We need to create empty ECR registry
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/1802df57-3114-4c24-a827-2f178bcf4568" />
 
@@ -38,7 +38,7 @@ We need to create empty ECR registry
 
 <img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/7fae01b4-c1b7-4889-97ba-c82887c7a093" />
 
-Createing EKS cluster by using Cloudshell.
+Creating EKS cluster by using Cloudshell.
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/09c95b70-3428-4a21-be59-b89ad06cecfd" />
 
