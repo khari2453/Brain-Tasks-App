@@ -48,28 +48,23 @@ Createing EKS cluster by using Cloudshell.
 # Step - 3
 <img width="306" height="165" alt="image" src="https://github.com/user-attachments/assets/1fc7f420-2a00-479f-81fc-54c85b8de0cf" />
 
-Createing code build by using buildspec.yaml file . In this we mentioned 
+Createing code build by using buildspec.yaml file . In this we mentioned push the image to ECR registry by using aws account id , region and repo name and we configured EKS cluster.
 
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/8823c4b7-ff27-43d5-a1a3-88be4bed6351" />
 
-# Createing Dockerhub
-Createing the empty docker repo in dockerhub and given public access
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/bfafe2d2-5b2c-41db-afed-3c6c7cb95482" />
+# verifying the success stage
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/004ef126-c3e1-469a-8077-41955c3f5d90" />
 
 # Step - 4
-On the Jenkins Server we installed EKS Cluster by running the commands are  `- curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" -o eksctl.tar.gz
-   - tar -xzf eksctl.tar.gz
-   - sudo mv eksctl /usr/local/bin
-   - eksctl version
-   - kubectl version --client
-   - aws sts get-caller-identity
-   - sudo eksctl create cluster   --name trend-tasks-app   --region us-east-1   --nodegroup-name trend-tasks-nodes   --node-type t3.medium   --nodes 2`
 
-## EKS Cluster Running With Two nodes
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/fc942743-c254-4d09-8d38-8eb27acc96bd" />
+# Codedeploye in EKS cluster via codepipeline using codedeploye role
 
-## Upon nodes
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/5d8a5405-6f11-4463-a532-4cc1ce31247b" />
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/690655ae-70b5-4740-8e48-dc75060469ba" />
 
+`Configuration to Codepipeline steps to deploy EKS`
+
+<img width="1366" height="1942" alt="image" src="https://github.com/user-attachments/assets/9bf00776-00e3-4b90-8efc-76b209ed88c5" />
 
 
 
