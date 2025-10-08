@@ -36,22 +36,20 @@ We need to create empty ECR registry
 # Step - 2
 
 <img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/7fae01b4-c1b7-4889-97ba-c82887c7a093" />
+
 Createing EKS cluster by using Cloudshell.
 
-# Createing EC2 Server 
-On this Ec2 server we need to provide the `aws configure` and install the terraform registory 
-We created the main.tf on the using userdata we createing jenkins. `jenkins pre-required java and jenkins run on port no 8080`
-# Terraform file created Server
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/e57a25e7-36c3-4efb-ba04-8646cd776940" />
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/09c95b70-3428-4a21-be59-b89ad06cecfd" />
 
-# Jenkins_Server
-<img width="48" height="48" src="https://img.icons8.com/color/48/jenkins.png" alt="jenkins"/>
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/17f2b4e1-43c2-4c54-bd6d-717c54d78d14" />
-# jenkins_Running
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/bdb67c94-0e38-4e9f-90dd-8f9d9d3ff000" />
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/b9b88b96-52bd-4f86-bd66-c7775ee6e78f" />
+
 
 # Step - 3
-<img width="311" height="162" alt="image" src="https://github.com/user-attachments/assets/32626503-1ce0-4652-942e-be4a1ec2982f" />
+<img width="306" height="165" alt="image" src="https://github.com/user-attachments/assets/1fc7f420-2a00-479f-81fc-54c85b8de0cf" />
+
+Createing code build by using buildspec.yaml file . In this we mentioned 
+
 
 # Createing Dockerhub
 Createing the empty docker repo in dockerhub and given public access
