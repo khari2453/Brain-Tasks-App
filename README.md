@@ -33,6 +33,7 @@
 We need to create empty ECR registry
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/1802df57-3114-4c24-a827-2f178bcf4568" />
 
+
 # Step - 2
 
 <img width="300" height="168" alt="image" src="https://github.com/user-attachments/assets/7fae01b4-c1b7-4889-97ba-c82887c7a093" />
@@ -43,6 +44,10 @@ Createing EKS cluster by using Cloudshell.
 
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/b9b88b96-52bd-4f86-bd66-c7775ee6e78f" />
+
+## Two nodes up running
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/8c7bb015-05c3-44a2-ba02-5e0f00ed35ff" />
 
 
 # Step - 3
@@ -58,7 +63,10 @@ Createing code build by using buildspec.yaml file . In this we mentioned push th
 
 # Step - 4
 
-# Codedeploye in EKS cluster via codepipeline using codedeploye role
+<img width="320" height="158" alt="image" src="https://github.com/user-attachments/assets/fa30133b-8dce-417f-b803-ea9d0fe08e06" />
+
+
+# Codedeploye in EKS cluster via codepipeline using codedeploye role to the EKS cluster .
 
 <img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/690655ae-70b5-4740-8e48-dc75060469ba" />
 
@@ -69,17 +77,20 @@ Createing code build by using buildspec.yaml file . In this we mentioned push th
 
 
 # Step - 5
-On the jenkins server opened on the Console UI . And adding pluging to deploy k8s cluster
-`k8s`
-`Docker`
-`pipeline stageview`
-Adding the credential to access the dockerhub and EKS Cluser
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/cf1f6f30-0d9f-48f7-a544-6d62c235f1f2" />
+
+
+<img width="284" height="177" alt="image" src="https://github.com/user-attachments/assets/b3593705-aa93-4edc-acc7-0256004320f0" />
+
+# Cloudwatch has been enable on above aws service for using we track the update status of the service .
+
+<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/1b33ff88-338f-4b7f-b627-11a666cfda67" />
+
 
 # Step - 6
 
-Createing Project on the jenkins server using jenkins pipeline . In this pipeline cover the 5 stages `Checkout ,	Build Docker Image ,	Push to DockerHub ,	Configure Kubeconfig ,	Deploy to EKS`
-<img width="1366" height="641" alt="image" src="https://github.com/user-attachments/assets/6c45a558-c2ea-4586-9b07-982856ed2caa" />
+# Workflows
+`If the developer changes any code change in github . it will codebuild and codedeploy. this configuration setup done on codepipeline`
+
 
 # Step - 7 
 
