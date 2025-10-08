@@ -28,15 +28,6 @@ phases:
       - echo "Writing Kubernetes manifests..."
       - sed -i "s|<AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/brain-tasks-app:latest|$IMAGE_URI|" k8s/deployment.yaml  
       
-      - aws eks update-kubeconfig --region $REGION --name brain-tasks-app1
-      - export KUBECONFIG=$HOME/.kube/config
-      - export KUBECONFIG=~/.kube/config
-      - echo "=== Testing cluster access ==="
-      - kubectl get nodes
-      - echo "=== Deploying to EKS ==="
-      - kubectl apply -f k8s/deployment.yaml
-      - kubectl apply -f k8s/service.yaml
-      
       
       
      
