@@ -8,5 +8,6 @@ spec:
   selector:
     app: brain-tasks-app
   ports:
-    - port: 3000
+    - protocol: TCP
+      port: 3000
       targetPort: 80
